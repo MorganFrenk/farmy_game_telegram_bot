@@ -2,6 +2,8 @@ import datetime
 import random
 from .settings import crit_settings, item_settings
 from .items import Items
+from .locations import location_home
+
 
 class Hero():
     ''' Hero of the game. Have power, gold, inventory and status'''
@@ -13,7 +15,7 @@ class Hero():
         self.inventory = Items()
         self.power = 10
         self.status = 'ready'
-        # self.location = 'Home'
+        self.location = location_home
 
     def rename(self, name):
         self.name = name

@@ -43,3 +43,6 @@ class Locations():
 
     def remove_location(self, location):
         self.locations.remove(location)
+
+
+location_home = Location('Home', 0)
