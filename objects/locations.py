@@ -1,15 +1,17 @@
-from .settings import farm_time_from_power, reward_from_power
-from .items import Items
+from .settings import farm_time_from_power, reward_from_power, item_settings
+from .items import all_game_items
 
 
 class Location():
+    '''Location of the game. Dungeons for looting.
+    Have reward, power level, random loot pool and define farm time'''
 
     def __init__(self, name, power):
         self.name = name
         self.power = power
         self.farm_time = farm_time_from_power[power]
         self.reward = reward_from_power[power]
-        self.loot_pool = Items.list_items_with_power(self.power)
+        self.loot_pool = all_game_items.get_random_items(self.power, item_settings['loot_pool_size'])
         self.heroes = []
 
     def add_hero(self, hero):
@@ -18,8 +20,10 @@ class Location():
     def remove_hero(self, hero):
         self.heroes.remove(hero)
 
-    def refull_loot_pool(self):
-        self.loot_pool = Items.list_items_with_power(self.power)
+    def refill_loot_pool(self):
+        '''Get random loot for the location'''
+
+        self.loot_pool = all_game_items.get_random_items(self.power, item_settings['loot_pool_size'])
 
     def get_loot(self):
         return self.loot_pool.get_random_items(self.power)
@@ -29,6 +33,7 @@ class Location():
 
 
 class Locations():
+    '''List of locations.'''
 
     def __init__(self):
         self.locations = []

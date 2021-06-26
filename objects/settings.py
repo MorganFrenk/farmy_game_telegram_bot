@@ -1,7 +1,7 @@
 
 # ------ POWER SETTINGS -------
 power_setting = {
-    'base_power': 10,  # Base power
+    'base_power': 10,  # First power level
     'step_power': 10,  # Step for the power upgrade to next power level
     'max_power_level': 5,  # Max level of location power
 
@@ -13,7 +13,7 @@ time_setting = {
     'base_time': 20,  # Base time for the location
     'step_time': 12,  # Step for the time upgrade from the power growth
 }
-# Farm time in minutes for the power
+# Farm time in minutes for the power level
 farm_time_from_power = {
     power_setting['base_power']: time_setting['base_time'],
     power_setting['base_power'] * 2: time_setting['base_time'] * time_setting['step_time'],
@@ -28,7 +28,7 @@ reward_setting = {
     'base_reward': 50,  # Base gold reward for the location
     'step_reward': 5,  # Step for the reward upgrade from the power growth
 }
-# Gold reward for the power
+# Gold reward for the power level
 reward_from_power = {
     power_setting['base_power']: reward_setting['base_reward'],
     power_setting['base_power'] * 2: reward_setting['base_reward'] * reward_setting['step_reward'],
@@ -48,7 +48,8 @@ crit_settings = {
 
 # ------ ITEM SETTINGS -------
 item_settings = {
-    'base_item_chance': 5,  # Base chance of getting item
-    'step_item_chance': 1.5,  # Step for the chance of getting item if
+    'base_item_chance': 5,  # Base chance to get an item
+    'step_item_chance': 1.5,  # Step for the chance to get an item if
                               # the power of the location is bigger than the power of the hero
+    'loot_pool_size': 10,  # Size of an items pool for a location
 }

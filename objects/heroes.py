@@ -4,7 +4,7 @@ from .settings import crit_settings, item_settings
 from .items import Items
 
 class Hero():
-    ''' Hero of the game. Have gold and inventory'''
+    ''' Hero of the game. Have power, gold, inventory and status'''
 
     def __init__(self, name):
         self.name = name
@@ -39,6 +39,8 @@ class Hero():
         self.remove_power(item.power)
 
     def go_farm(self, location):
+        '''Set location to go. Change status'''
+
         self.location = location
         self.status = 'farm'
         location.add_hero(self)
@@ -46,7 +48,7 @@ class Hero():
     def return_from_farm(self):
         '''Get the farm result from random chance (fail or success).
         Get random loot.'''
-        
+
         get_crit_result = random.randint(1,100)
         get_item_result = random.randint(1,100)
 
