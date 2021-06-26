@@ -50,3 +50,6 @@ class Items():
             random_items = self.list_items_with_power(power)
             return random.sample(random_items, amount)
         return random.sample(self.items, amount)
+
+
+all_items = Items()

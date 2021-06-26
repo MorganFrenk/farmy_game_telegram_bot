@@ -42,3 +42,10 @@ crit_settings = {
                              # the power of the location is bigger than the power of the hero
     'base_crit_time': 1440,  # Time of a wound status of the hero in minutes
 }
+
+# ------ ITEM SETTINGS -------
+item_settings = {
+    'base_item_chance': 5,  # Base chance of getting item
+    'step_item_chance': 1.5,  # Step for the chance of getting item if
+                              # the power of the location is bigger than the power of the hero
+}
