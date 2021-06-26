@@ -1,5 +1,5 @@
 import random
-from .items import Items
+
 
 class Item():
     '''Item in the game'''
@@ -11,6 +11,7 @@ class Item():
 
     def __repr__(self):
         return f'<Item {self.name} with power {self.power}>'
+
 
 class Items():
     '''List of game items. 

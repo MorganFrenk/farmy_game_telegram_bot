@@ -1,6 +1,6 @@
-import datetime
 from .additionals import farm_times, location_reward
 from .items import Items
+
 
 class Location():
 
@@ -24,16 +24,3 @@ class Location():
 
     def __repr__(self):
         return f'<Location {self.name} with power {self.power}>'
-
-# Do i need this class?
-class Shop():
-    '''Shop in the game'''
-
-    def __init__(self, power):
-        self.items = Items.list_items_with_power(power)
-
-    def refull_shop(self, power):
-        self.items = Items.list_items_with_power(power)
-
-    
-# add events

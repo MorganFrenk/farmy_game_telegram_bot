@@ -14,9 +14,4 @@ location_reward = {
 hero_statuses = {
     'wounded',
     'In location',
-    
 }
-
- 
-
-
