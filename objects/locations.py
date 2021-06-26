@@ -1,4 +1,4 @@
-from .additionals import farm_times, location_reward
+from .settings import farm_time_from_power, reward_from_power
 from .items import Items
 
 
@@ -8,13 +8,16 @@ class Location():
 
         self.name = name
         self.power = power
-        self.farm_time = farm_times[power]
-        self.reward = location_reward[power]
+        self.farm_time = farm_time_from_power[power]
+        self.reward = reward_from_power[power]
         self.loot_pool = Items.list_items_with_power(self.power)
         self.heroes = []
 
     def add_hero(self, hero):
         self.heroes.append(hero)
+
+    def remove_hero(self, hero):
+        self.heroes.remove(hero)
 
     def refull_loot_pool(self):
         self.loot_pool = Items.list_items_with_power(self.power)

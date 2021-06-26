@@ -14,21 +14,20 @@ class Item():
 
 
 class Items():
-    '''List of game items. 
+    '''List of game items.
     Inventory, Shop, Loot'''
 
     def __init__(self):
         self.items = []
 
     def add_item(self, item):
-        
         self.items.append(item)
 
     def remove_item(self, item):
         self.items.remove(item)
 
     def find_item(self, name):
-        '''Find item with power'''
+        '''Find item with name'''
 
         for item in self.items:
             if item.name == name:
@@ -37,7 +36,7 @@ class Items():
 
     def list_items_with_power(self, power=False):
         '''List of all items with power'''
-        
+
         items_with_power = []
         for item in self.items:
             if item.power <= power:

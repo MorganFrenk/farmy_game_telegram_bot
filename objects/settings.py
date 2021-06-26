@@ -36,10 +36,9 @@ reward_from_power = {
 
 
 # ------ CRITICAL WOUND SETTINGS -------
-crit_setting = {
+crit_settings = {
     'base_crit_chance': 1,  # Base chance of critical wound
     'step_crit_chance': 10,  # Step for the chance of critical wound if
                              # the power of the location is bigger than the power of the hero
     'base_crit_time': 1440,  # Time of a wound status of the hero in minutes
 }
-
