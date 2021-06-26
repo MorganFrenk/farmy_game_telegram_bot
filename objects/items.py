@@ -1,4 +1,5 @@
 import random
+from .settings import power_setting
 
 
 class Item():
@@ -44,7 +45,7 @@ class Items():
         return items_with_power
 
     def get_random_items(self, power=False, amount=1):
-        '''Random item from all items or with power'''
+        '''Random item from all items or with power.'''
 
         if power:
             random_items = self.list_items_with_power(power)
@@ -52,4 +53,15 @@ class Items():
         return random.sample(self.items, amount)
 
 
-all_items = Items()
+class Shop(Items):
+
+    def refill_shop(self, items_pool):
+        '''Fill shop with random power items
+        Loop through all power levels. 
+        Get the amount of items from max level - current level '''
+
+        for level in range(power_setting['max_power']):
+            items_to_add = items_pool.get_random_items(
+                power=(power_setting['base_power'] + power_setting['step_power'] * level),
+                amount=power_setting['max_power_level'] - level)
+            self.items.extend(items_to_add)
