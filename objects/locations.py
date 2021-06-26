@@ -5,7 +5,6 @@ from .items import Items
 class Location():
 
     def __init__(self, name, power):
-
         self.name = name
         self.power = power
         self.farm_time = farm_time_from_power[power]
@@ -27,3 +26,15 @@ class Location():
 
     def __repr__(self):
         return f'<Location {self.name} with power {self.power}>'
+
+
+class Locations():
+
+    def __init__(self):
+        self.locations = []
+
+    def add_location(self, location):
+        self.locations.append(location)
+
+    def remove_location(self, location):
+        self.locations.remove(location)
