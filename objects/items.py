@@ -57,8 +57,8 @@ class Shop(Items):
 
     def refill_shop(self, items_pool):
         '''Fill shop with random power items
-        Loop through all power levels. 
-        Get the amount of items from max level - current level '''
+        Loop through all power levels.
+        Get the amount of items from max level minus current level '''
 
         for level in range(power_setting['max_power']):
             items_to_add = items_pool.get_random_items(

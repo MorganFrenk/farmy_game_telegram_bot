@@ -44,6 +44,9 @@ class Hero():
         location.add_hero(self)
 
     def return_from_farm(self):
+        '''Get the farm result from random chance (fail or success).
+        Get random loot.'''
+        
         get_crit_result = random.randint(1,100)
         get_item_result = random.randint(1,100)
 
@@ -71,4 +74,3 @@ class Hero():
 
     def __repr__(self):
         return f'<Hero {self.name} with power {self.power}>'
-        # def go home. Get random event from events
