@@ -18,15 +18,13 @@ class Location():
         self.heroes.append(hero)
 
     def remove_hero(self, hero):
-        self.heroes.remove(hero)
+        if hero in self.heroes:
+            self.heroes.remove(hero)
 
     def refill_loot_pool(self):
         '''Get random loot for the location'''
 
         self.loot_pool = all_game_items.get_random_items(self.power, item_settings['loot_pool_size'])
-
-    def get_loot(self):
-        return self.loot_pool.get_random_items(self.power)
 
     def __repr__(self):
         return f'<Location {self.name} with power {self.power}>'
@@ -39,10 +37,12 @@ class Locations():
         self.locations = []
 
     def add_location(self, location):
-        self.locations.append(location)
+        if location not in self.locations:
+            self.locations.append(location)
 
     def remove_location(self, location):
-        self.locations.remove(location)
+        if location in self.locations:
+            self.locations.remove(location)
 
 
 location_home = Location('Home', 0)

@@ -25,7 +25,8 @@ class Items():
         self.items.append(item)
 
     def remove_item(self, item):
-        self.items.remove(item)
+        if item in self.items:
+            self.items.remove(item)
 
     def find_item(self, name):
         '''Find item with name'''

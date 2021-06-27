@@ -37,8 +37,9 @@ class Hero():
         self.add_power(item.power)
 
     def remove_item(self, item):
-        self.inventory.remove_item(item)
-        self.remove_power(item.power)
+        if item in self.items:
+            self.inventory.remove_item(item)
+            self.remove_power(item.power)
 
     def go_farm(self, location):
         '''Set location to go. Change status'''
