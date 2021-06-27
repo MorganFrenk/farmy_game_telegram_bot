@@ -5,7 +5,7 @@ from .settings import power_setting
 class Item():
     '''Item in the game with price and power'''
 
-    def __init__(self, name, power, price):
+    def __init__(self, name, power, price) -> None:
         self.name = name
         self.power = power
         self.price = price
@@ -16,7 +16,7 @@ class Item():
 
 class Items():
     '''List of game items.
-    For: inventory, shop, location loot'''
+    For: inventory, location loot'''
 
     def __init__(self):
         self.items = []
@@ -59,7 +59,7 @@ class Shop(Items):
 
     def refill_shop(self, items_pool):
         '''Fill shop with random items. Loop through all power levels.
-        Get the amount of items with define power from max level
+        Get the amount of items with define power from: max level
         minus current level '''
 
         for level in range(power_setting['max_power']):
@@ -69,4 +69,5 @@ class Shop(Items):
             self.items.extend(items_to_add)
 
 
+# Game objects
 all_game_items = Items()
