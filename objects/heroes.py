@@ -8,12 +8,12 @@ from .locations import location_home
 class Hero():
     ''' Hero of the game. Have power, gold, inventory and status'''
 
-    def __init__(self, name):
+    def __init__(self, name, power=10):
         self.name = name
         self.birth = datetime.date.today()
         self.gold = 0
         self.inventory = Items()
-        self.power = 10
+        self.power = power
         self.status = 'ready'
         self.location = location_home
 
@@ -33,6 +33,7 @@ class Hero():
         self.gold -= gold
 
     def add_item(self, item):
+        # Items is list
         self.inventory.add_item(item)
         self.add_power(item.power)
 

@@ -15,6 +15,7 @@ time_setting = {
 }
 # Farm time in minutes for the power level
 farm_time_from_power = {
+    0:0,  # Special setting for home location
     power_setting['base_power']: time_setting['base_time'],
     power_setting['base_power'] * 2: time_setting['base_time'] * time_setting['step_time'],
     power_setting['base_power'] * 3: time_setting['base_time'] * time_setting['step_time'] * 2,
@@ -30,6 +31,7 @@ reward_setting = {
 }
 # Gold reward for the power level
 reward_from_power = {
+    0:0,  # Special setting for home location
     power_setting['base_power']: reward_setting['base_reward'],
     power_setting['base_power'] * 2: reward_setting['base_reward'] * reward_setting['step_reward'],
     power_setting['base_power'] * 3: reward_setting['base_reward'] * reward_setting['step_reward'] * 2,
