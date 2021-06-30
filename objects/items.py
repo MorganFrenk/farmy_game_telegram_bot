@@ -51,7 +51,7 @@ class Items():
         If power limit is not set, search throughout one power level'''
 
         if not power_limit:
-            for lev in range(1, power_setting['max_power_level']):
+            for lev in range(1, power_setting['max_power_level'] + 1):
                 lev_pow = power_setting['base_power'] * power_setting['step_power'] ** lev
                 if lev == 1:
                     prev_lev_pow = 0
@@ -75,45 +75,18 @@ class Items():
         return random.sample(self.items, amount)
 
 
-# Game objects
-all_game_items = Items()
-
-item_1 = Item('item', 10, 200)
-item_2 = Item('item', 10, 200)
-item_3 = Item('item', 10, 200)
-item_4 = Item('item', 10, 200)
-item_5 = Item('item', 10, 200)
-
-item_6 = Item('item', 20, 200)
-item_7 = Item('item', 20, 200)
-item_8 = Item('item', 20, 200)
-item_9 = Item('item', 20, 200)
-
-item_10 = Item('item', 30, 300)
-item_11 = Item('item', 30, 300)
-item_12 = Item('item', 30, 300)
-
-item_13 = Item('item', 40, 300)
-item_14 = Item('item', 40, 300)
-
-item_15 = Item('item', 50, 300)
-
-
-all_game_items.add_item([item_1, item_2, item_3, item_4, item_5,
-                                 item_6, item_7, item_8, item_9, item_10,
-                                 item_11, item_12, item_13, item_14, item_15])
-
-
 class Shop(Items):
     '''Special class for the game shop'''
 
-    def refill_shop(self, items_pool=all_game_items):
+    def refill_shop(self, items_pool, pool_amount=power_setting['max_power_level']):
         '''Fill shop with random items. Loop through all power levels.
         Get the amount of items with define power from: max level
         minus current level '''
 
-        for level in range(1, power_setting['max_power_level']):
+        self.items.clear()
+
+        for level in range(1, power_setting['max_power_level'] + 1):
             items_to_add = items_pool.get_random_items(
                 power=(power_setting['base_power'] * power_setting['step_power'] ** level - 1),
-                amount=power_setting['max_power_level'] - level)
+                amount=pool_amount)
             self.items.extend(items_to_add)

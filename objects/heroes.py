@@ -8,14 +8,14 @@ from .locations import location_home
 class Hero():
     ''' Hero of the game. Have power, gold, inventory and status'''
 
-    def __init__(self, name, power=10):
+    def __init__(self, name, base_location, power=10):
         self.name = name
         self.birth = datetime.date.today()
         self.gold = 0
         self.inventory = Items()
         self.power = power
         self.status = 'ready'
-        self.location = location_home
+        self.location = base_location
 
     def rename(self, name):
         self.name = name

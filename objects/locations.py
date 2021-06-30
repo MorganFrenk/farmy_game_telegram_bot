@@ -6,12 +6,12 @@ class Location():
     '''Location of the game. Dungeons for looting.
     Have reward, power level, random loot pool and define farm time'''
 
-    def __init__(self, name: str, power: int, items=all_game_items, pool_amount=item_settings['loot_pool_size']):
+    def __init__(self, name: str, power: int, items_pool, pool_amount=item_settings['loot_pool_size']):
         self.name = name
         self.power = power
         self.farm_time = farm_time_from_power[power]
         self.reward = reward_from_power[power]
-        self.loot_pool = items.get_random_items(self.power, amount=pool_amount)
+        self.loot_pool = items_pool.get_random_items(self.power, amount=pool_amount)
         self.heroes = []
 
     def add_hero(self, hero):
@@ -44,6 +44,3 @@ class Locations():
     def remove_location(self, location):
         if location in self.locations:
             self.locations.remove(location)
-
-
-location_home = Location('Home', 0, pool_amount=1)

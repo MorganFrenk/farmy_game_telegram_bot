@@ -51,32 +51,14 @@ class TestItems(unittest.TestCase):
 
     def test_shop_refill(self) -> None:
         shop = Shop()
-        self.item_1 = Item('item', 4, 200)
-        self.item_2 = Item('item', 5, 200)
-        self.item_3 = Item('item', 6, 200)
-        self.item_4 = Item('item', 7, 200)
-        self.item_5 = Item('item', 8, 200)
+        self.item_1 = Item('item', 19, 200)
+        self.item_2 = Item('item', 39, 200)
+        self.item_3 = Item('item', 79, 200)
+        self.item_4 = Item('item', 159, 200)
+        self.item_5 = Item('item', 319, 200)
 
-        self.item_6 = Item('item', 16, 200)
-        self.item_7 = Item('item', 17, 200)
-        self.item_8 = Item('item', 18, 200)
-        self.item_9 = Item('item', 19, 200)
+        self.items_pool.add_item([self.item_1, self.item_2, self.item_3, self.item_4, self.item_5])
 
-        self.item_10 = Item('item', 27, 300)
-        self.item_11 = Item('item', 28, 300)
-        self.item_12 = Item('item', 29, 300)
+        shop.refill_shop(items_pool=self.items_pool, pool_amount=1)
 
-        self.item_13 = Item('item', 38, 300)
-        self.item_14 = Item('item', 39, 300)
-
-        self.item_15 = Item('item', 49, 300)
-
-        self.items_pool.add_item([self.item_1, self.item_2, self.item_3, self.item_4, self.item_5,
-                                 self.item_6, self.item_7, self.item_8, self.item_9, self.item_10,
-                                 self.item_11, self.item_12, self.item_13, self.item_14, self.item_15])
-
-        shop.refill_shop(items_pool=self.items_pool)
-
-        self.assertCountEqual(shop.items, [self.item_1, self.item_2, self.item_3, self.item_4, self.item_5,
-                                           self.item_6, self.item_7, self.item_8, self.item_9, self.item_10,
-                                           self.item_11, self.item_12, self.item_13, self.item_14, self.item_15])
+        self.assertCountEqual(shop.items, [self.item_1, self.item_2, self.item_3, self.item_4, self.item_5])
