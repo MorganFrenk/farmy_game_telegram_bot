@@ -1,6 +1,7 @@
 from .settings import farm_time_from_power, reward_from_power, item_settings
 from .items import Items, all_game_items
 
+
 class Location():
     '''Location of the game. Dungeons for looting.
     Have reward, power level, random loot pool and define farm time'''

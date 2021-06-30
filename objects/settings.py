@@ -2,9 +2,8 @@
 # ------ POWER SETTINGS -------
 power_setting = {
     'base_power': 10,  # First power level
-    'step_power': 10,  # Step for the power upgrade to next power level
+    'step_power': 2,  # Step for the power upgrade to next power level
     'max_power_level': 5,  # Max level of location power
-
 }
 
 
