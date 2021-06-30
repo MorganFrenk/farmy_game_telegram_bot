@@ -1,5 +1,4 @@
 from .settings import farm_time_from_power, reward_from_power, item_settings
-from .items import Items, all_game_items
 
 
 class Location():
@@ -11,7 +10,7 @@ class Location():
         self.power = power
         self.farm_time = farm_time_from_power[power]
         self.reward = reward_from_power[power]
-        self.loot_pool = items_pool.get_random_items(self.power, amount=pool_amount)
+        self.loot_pool = items_pool.get_random_items(self.power, amount=pool_amount, power_limit=0)
         self.heroes = []
 
     def add_hero(self, hero):

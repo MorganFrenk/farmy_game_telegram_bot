@@ -2,7 +2,6 @@ import datetime
 import random
 from .settings import crit_settings, item_settings
 from .items import Items
-from .locations import location_home
 
 
 class Hero():
